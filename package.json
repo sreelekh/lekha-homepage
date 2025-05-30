@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "build": "astro build",
+    "preview": "astro preview",
+    "dev": "astro dev"
+  }
+}
