@@ -1,4 +1,6 @@
 # .github/workflows/deploy.yml
+# Reliable deployment workflow for Astro + GitHub Pages
+
 name: Deploy to GitHub Pages
 
 on:
@@ -32,8 +34,11 @@ jobs:
         id: pages
         uses: actions/configure-pages@v4
       
-      - name: Install dependencies
-        run: npm ci
+      - name: Clean install dependencies
+        run: |
+          rm -rf node_modules package-lock.json
+          npm cache clean --force
+          npm install
       
       - name: Build with Astro
         run: npm run build

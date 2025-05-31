@@ -1,0 +1,1002 @@
+---
+// src/pages/cv.astro
+import Layout from "../layouts/Layout.astro";
+
+const cvData = {
+    overleafLink: "https://www.overleaf.com/read/your-cv-link", // Update with actual Overleaf link
+    lastUpdated: "December 2024",
+
+    education: [
+        {
+            degree: "Ph.D. in Computational Data Science (CDSE)",
+            institution:
+                "University at Buffalo, The State University of New York",
+            location: "Buffalo, NY",
+            period: "Aug 2017 - Jun 2022",
+            thesis: "Non-parametric probabilistic anomaly detection in evolving data: Applications to time series",
+            advisor: "Dr. Abani Patra, Dr. Varun Chandola",
+        },
+        {
+            degree: "M.S. in Civil Engineering (Transportation Statistics)",
+            institution:
+                "University at Buffalo, The State University of New York",
+            location: "Buffalo, NY",
+            period: "Aug 2016 - Sept 2017",
+        },
+        {
+            degree: "M.S. in Biostatistics-Bioinformatics",
+            institution:
+                "University at Buffalo and Roswell Park Cancer Institute (RPCI)",
+            location: "Buffalo, NY",
+            period: "Aug 2014 - Sept 2015",
+            thesis: "Statistical assessment of TCGA ovarian cancer sequencing dataset for prognostic utility",
+        },
+        {
+            degree: "B.Math in Mathematics (Honors)",
+            institution: "Indian Statistical Institute (ISI)",
+            location: "Bangalore, India",
+            period: "Jul 2011 - May 2014",
+            honors: "Full student scholarship (merit-based) throughout the degree completion",
+        },
+    ],
+
+    experience: [
+        {
+            title: "Assistant Professor in Data Science",
+            organization: "Texas A&M University, Corpus Christi",
+            department: "Department of Mathematics and Statistics",
+            location: "Corpus Christi, TX",
+            period: "August 2024 - Present",
+            type: "Academic Position",
+            responsibilities: [
+                "Doctoral faculty in Coastal and Marine Sciences Department",
+                "Active member of Academics Committee for the Data Science PhD Program Planning Committee",
+                "Active member in Graduate Admissions Committee",
+                "Designed graduate course on advanced topics in Deep Learning including Generative AI models, basics of natural language processing, attention mechanisms, transformers, and model distillation",
+            ],
+        },
+        {
+            title: "Research and Development Associate in Machine Learning",
+            organization: "Oak Ridge National Laboratory",
+            department:
+                "National Security Sciences Directorate, Geo-spatial Science and Human Dynamics Division",
+            location: "Oak Ridge, TN",
+            period: "Mar 2022 - July 2024",
+            type: "Research Position",
+            responsibilities: [
+                "DOE Early Career LDRD awardee for research in Quantum computing for spatiotemporal modeling",
+                "Lead on modeling and algorithm development for extended Large deviations Anomaly Detection modeling",
+                "Active contributor to multiple Generative AI foundation model projects using multimodal data",
+                "Awarded 4 research grants as Principle Investigator and co-Principle Investigator",
+                "Lead statistician on developing outbreak prediction models using alternate data sources",
+            ],
+        },
+        {
+            title: "Research Assistant - Anomaly Detection in Streaming High-Dimensional Time Series Database",
+            organization: "University at Buffalo",
+            department:
+                "Institute of Computational Data Science and Department of Computer Science & Engineering",
+            location: "Buffalo, NY",
+            period: "Sept 2019 - Feb 2022",
+            type: "Graduate Research",
+            responsibilities: [
+                "Solved outstanding problems in anomaly detection in evolving data and collections of multivariate time series",
+                "Developed INCAD: Integrated Clustering and Anomaly Detection algorithm",
+                "Designed LAD: Large Deviations Anomaly Detection model",
+                "Created LIIT: LAD Inspired Iterative Training algorithm for neural networks",
+            ],
+        },
+        {
+            title: "Teaching Assistant",
+            organization: "University at Buffalo",
+            department: "Institute of Computational Data Science",
+            location: "Buffalo, NY",
+            period: "Sept 2017 - Sept 2019",
+            type: "Teaching",
+            responsibilities: [
+                "Led and coordinated a team of teaching assistants for graduate courses in data science",
+                "Collaborated on developing exams and assignments and lead recitation sessions",
+            ],
+        },
+        {
+            title: "Risk Manager",
+            organization: "American Express, World Financial Center",
+            department: "Global Corporate Portfolios",
+            location: "NY, NY",
+            period: "Nov 2015 - Jun 2016",
+            type: "Industry",
+            responsibilities: [
+                "Risk And Data Analytics for Corporate Credit Portfolios",
+                "Quantified the change in spending trends in cross-sold clients",
+                "Developed and improved risk margins for corporate clients in Global Corporate Payments",
+                "Responsible for identifying trends in risk-based industries and states",
+            ],
+        },
+    ],
+
+    grants: [
+        {
+            title: "Quantum Variational Inference for Anomaly Detection in Spatiotemporal Data",
+            agency: "DOE-ORNL Early Career Development Research Award",
+            amount: "$300,000",
+            period: "Mar 2023 - Feb 2025",
+            role: "PI (100%)",
+        },
+        {
+            title: "Environmental Anomaly Detection for Biopreparedness",
+            agency: "ORNL Laboratory Directors R&D Funds",
+            amount: "$930,000",
+            period: "Feb 2023 - Jan 2025",
+            role: "Co-Principal Investigator",
+        },
+        {
+            title: "Pattern of Life for Nuclear Non-proliferation",
+            agency: "ORNL Laboratory Directors R&D Funds",
+            amount: "$780,000",
+            period: "Oct 2022 - Sep 2024",
+            role: "Co-Principal Investigator",
+        },
+        {
+            title: "Artificial Intelligence Models for Land Cover Forecasting",
+            agency: "ORNL Laboratory Directors R&D SEED Funds",
+            amount: "$190,000",
+            period: "Feb 2023 - Jan 2025",
+            role: "Contributor",
+        },
+    ],
+
+    awards: [
+        {
+            title: "Top Downloaded Author in Wiley Journal of Statistical Analysis and Data Mining",
+            year: "2023",
+            organization: "Wiley",
+        },
+        {
+            title: "Oak Ridge National Lab Early Career LDRD Competition Winner",
+            year: "2023",
+            organization: "Oak Ridge National Laboratory",
+        },
+        {
+            title: "Runner up: STEM for Everyone: Women in STEM Cooperative (WiSC)",
+            year: "2021",
+            organization: "WiSC",
+        },
+        {
+            title: "Honors degree in Mathematics from Indian Statistical Institute",
+            year: "2014",
+            organization: "Indian Statistical Institute",
+        },
+        {
+            title: "Full student scholarship (merit-based) throughout the completion of the degree",
+            year: "2011-2014",
+            organization: "Indian Statistical Institute",
+        },
+    ],
+
+    skills: {
+        programming: ["Python", "R", "MATLAB", "JavaScript", "SQL", "C++"],
+        frameworks: [
+            "TensorFlow",
+            "PyTorch",
+            "Scikit-learn",
+            "Pandas",
+            "NumPy",
+            "SciPy",
+        ],
+        quantum: ["Qiskit", "Cirq", "PennyLane", "Quantum Machine Learning"],
+        databases: [
+            "PostgreSQL",
+            "MongoDB",
+            "InfluxDB",
+            "Time-series databases",
+        ],
+        tools: ["Git", "Docker", "AWS", "Linux/Unix", "Jupyter", "LaTeX"],
+        specializations: [
+            "Machine Learning",
+            "Anomaly Detection",
+            "Time-series Analysis",
+            "Quantum Computing",
+            "Statistical Modeling",
+            "Geospatial Analysis",
+            "Deep Learning",
+        ],
+    },
+
+    teaching: [
+        {
+            course: "DASC-5390 - Advanced Topics in Deep Learning",
+            semester: "Spring 2025",
+            institution: "Texas A&M Corpus Christi",
+            role: "Instructor",
+        },
+        {
+            course: "EAS 501 - Introduction to Numerical Mathematics for Computing and Data Science",
+            semester: "Fall 2017, Fall 2018",
+            institution: "University at Buffalo",
+            role: "Teaching Assistant",
+        },
+        {
+            course: "EAS 502 - Introduction to Probability Theory for Data Science",
+            semester: "Fall 2017, Fall 2018",
+            institution: "University at Buffalo",
+            role: "Teaching Assistant",
+        },
+        {
+            course: "EAS 503 - Programming and Database Fundamentals for Data Scientists",
+            semester: "Fall 2017, Fall 2018",
+            institution: "University at Buffalo",
+            role: "Teaching Assistant",
+        },
+        {
+            course: "EAS 508 - Statistical Learning and Data Mining I",
+            semester: "Fall 2017, Fall 2018",
+            institution: "University at Buffalo",
+            role: "Teaching Assistant",
+        },
+    ],
+
+    service: {
+        editorial: [
+            "Data Mining and Knowledge Discovery",
+            "Information Systems",
+            "Journal of Computational Science",
+            "Journal of Hydrology",
+            "IEEE Geoscience and Remote Sensing Letters",
+            "Frontiers in Earth",
+            "Information Sciences",
+            "Neural Networks",
+        ],
+        panels: [
+            "Judge for the IGNITE Talks 2023",
+            "Judge for SCUDEM VII 2023 - Modeling with Differential Equations",
+            "Judge for SCUDEM VII 2022 - Modeling with Differential Equations",
+            "Albert Einstein Distinguished Educator Fellowship (AEF) Program 2022",
+        ],
+        committees: [
+            "Graduate Admissions Committee (Data Science Program) - Texas A&M Corpus Christi",
+            "Curriculum Committee (Data Science Program) - Texas A&M Corpus Christi",
+            "Data Science PhD Program Planning Committee - Texas A&M Corpus Christi",
+            "ORNL Diversity Equity and Inclusion GSHS division committee (2023-2024)",
+        ],
+    },
+
+    memberships: [
+        "Delta Omega Honorary Society in Public Health (2023-)",
+        "Institute of Electrical and Electronics Engineers (IEEE) (2022-)",
+        "Association for Computing Machinery (ACM) (2022-)",
+        "American Geophysical Union (AGU) (2022-)",
+        "Society for Industrial and Applied Mathematics (SIAM) (2019-)",
+        "Association for Women in Mathematics (AWM) (2017-2023)",
+        "Women in STEM Cooperative (WiSC) (2017-2022)",
+    ],
+};
+---
+
+<Layout title="CV - Dr. Sreelekha Guggilam">
+    <section class="cv-header">
+        <div class="cv-title-section">
+            <h1 class="page-title">Curriculum Vitae</h1>
+            <div class="cv-meta">
+                <span class="last-updated"
+                    >Last Updated: {cvData.lastUpdated}</span
+                >
+            </div>
+
+            <div class="cv-download-section">
+                <a href={cvData.overleafLink} target="_blank" class="btn"
+                    >📄 Download PDF (Overleaf)</a
+                >
+                <button onclick="window.print()" class="btn btn-outline"
+                    >🖨️ Print This Page</button
+                >
+            </div>
+        </div>
+    </section>
+
+    <div class="cv-content">
+        <section class="cv-section">
+            <h2 class="cv-section-title">Education</h2>
+            <div class="timeline">
+                {
+                    cvData.education.map((edu) => (
+                        <div class="timeline-item">
+                            <div class="timeline-marker" />
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">{edu.degree}</h3>
+                                <div class="timeline-institution">
+                                    {edu.institution}
+                                </div>
+                                <div class="timeline-meta">
+                                    <span class="timeline-location">
+                                        📍 {edu.location}
+                                    </span>
+                                    <span class="timeline-period">
+                                        🗓️ {edu.period}
+                                    </span>
+                                </div>
+                                {edu.thesis && (
+                                    <div class="timeline-detail">
+                                        <strong>Thesis:</strong> {edu.thesis}
+                                    </div>
+                                )}
+                                {edu.advisor && (
+                                    <div class="timeline-detail">
+                                        <strong>Advisors:</strong> {edu.advisor}
+                                    </div>
+                                )}
+                                {edu.honors && (
+                                    <div class="timeline-detail">
+                                        <strong>Honors:</strong> {edu.honors}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h2 class="cv-section-title">Professional Experience</h2>
+            <div class="timeline">
+                {
+                    cvData.experience.map((exp) => (
+                        <div class="timeline-item">
+                            <div class="timeline-marker" />
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">{exp.title}</h3>
+                                <div class="timeline-institution">
+                                    {exp.organization}
+                                </div>
+                                {exp.department && (
+                                    <div class="timeline-department">
+                                        {exp.department}
+                                    </div>
+                                )}
+                                <div class="timeline-meta">
+                                    <span class="timeline-location">
+                                        📍 {exp.location}
+                                    </span>
+                                    <span class="timeline-period">
+                                        🗓️ {exp.period}
+                                    </span>
+                                    <span class="timeline-type">
+                                        🏷️ {exp.type}
+                                    </span>
+                                </div>
+                                <ul class="timeline-responsibilities">
+                                    {exp.responsibilities.map((resp) => (
+                                        <li>{resp}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h2 class="cv-section-title">Research Grants & Funding</h2>
+            <div class="grants-grid">
+                {
+                    cvData.grants.map((grant) => (
+                        <div class="grant-card">
+                            <h3 class="grant-title">{grant.title}</h3>
+                            <div class="grant-agency">{grant.agency}</div>
+                            <div class="grant-details">
+                                <span class="grant-amount">
+                                    💰 {grant.amount}
+                                </span>
+                                <span class="grant-period">
+                                    🗓️ {grant.period}
+                                </span>
+                                <span class="grant-role">👤 {grant.role}</span>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h2 class="cv-section-title">Awards & Honors</h2>
+            <div class="awards-grid">
+                {
+                    cvData.awards.map((award) => (
+                        <div class="award-item">
+                            <div class="award-year">{award.year}</div>
+                            <div class="award-content">
+                                <h3 class="award-title">{award.title}</h3>
+                                <div class="award-organization">
+                                    {award.organization}
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h2 class="cv-section-title">Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skills-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skills-tags">
+                        {
+                            cvData.skills.programming.map((skill) => (
+                                <span class="skill-tag">{skill}</span>
+                            ))
+                        }
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Frameworks & Libraries</h3>
+                    <div class="skills-tags">
+                        {
+                            cvData.skills.frameworks.map((skill) => (
+                                <span class="skill-tag">{skill}</span>
+                            ))
+                        }
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Quantum Computing</h3>
+                    <div class="skills-tags">
+                        {
+                            cvData.skills.quantum.map((skill) => (
+                                <span class="skill-tag">{skill}</span>
+                            ))
+                        }
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Databases & Tools</h3>
+                    <div class="skills-tags">
+                        {
+                            cvData.skills.databases
+                                .concat(cvData.skills.tools)
+                                .map((skill) => (
+                                    <span class="skill-tag">{skill}</span>
+                                ))
+                        }
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Research Specializations</h3>
+                    <div class="skills-tags">
+                        {
+                            cvData.skills.specializations.map((skill) => (
+                                <span class="skill-tag specialization">
+                                    {skill}
+                                </span>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h2 class="cv-section-title">Teaching Experience</h2>
+            <div class="teaching-list">
+                {
+                    cvData.teaching.map((course) => (
+                        <div class="teaching-item">
+                            <h3 class="course-title">{course.course}</h3>
+                            <div class="course-details">
+                                <span class="course-semester">
+                                    {course.semester}
+                                </span>
+                                <span class="course-institution">
+                                    {course.institution}
+                                </span>
+                                <span class="course-role">{course.role}</span>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h2 class="cv-section-title">Professional Service</h2>
+
+            <div class="service-subsection">
+                <h3>Editorial & Review Service</h3>
+                <div class="service-list">
+                    {
+                        cvData.service.editorial.map((journal) => (
+                            <span class="service-item">{journal}</span>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <div class="service-subsection">
+                <h3>Panel Judge & External Service</h3>
+                <ul class="service-detailed-list">
+                    {cvData.service.panels.map((panel) => <li>{panel}</li>)}
+                </ul>
+            </div>
+
+            <div class="service-subsection">
+                <h3>Committee Service</h3>
+                <ul class="service-detailed-list">
+                    {
+                        cvData.service.committees.map((committee) => (
+                            <li>{committee}</li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h2 class="cv-section-title">Professional Memberships</h2>
+            <div class="memberships-list">
+                {
+                    cvData.memberships.map((membership) => (
+                        <div class="membership-item">{membership}</div>
+                    ))
+                }
+            </div>
+        </section>
+    </div>
+</Layout>
+
+<style>
+    .cv-header {
+        background: linear-gradient(
+            135deg,
+            var(--primary-color) 0%,
+            var(--secondary-color) 100%
+        );
+        color: white;
+        padding: 3rem 0;
+        margin: -2rem -20px 3rem -20px;
+        text-align: center;
+    }
+
+    .cv-title-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .page-title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .cv-meta {
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+
+    .last-updated {
+        font-size: 1.1rem;
+    }
+
+    .cv-download-section {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .cv-download-section .btn {
+        background: white;
+        color: var(--primary-color);
+        border: none;
+    }
+
+    .cv-download-section .btn-outline {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+    }
+
+    .cv-download-section .btn-outline:hover {
+        background: white;
+        color: var(--primary-color);
+    }
+
+    .cv-content {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .cv-section {
+        margin-bottom: 4rem;
+    }
+
+    .cv-section-title {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+        border-bottom: 3px solid var(--secondary-color);
+        padding-bottom: 0.5rem;
+    }
+
+    /* Timeline Styles */
+    .timeline {
+        position: relative;
+        padding-left: 2rem;
+    }
+
+    .timeline::before {
+        content: "";
+        position: absolute;
+        left: 1rem;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--secondary-color);
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-bottom: 3rem;
+    }
+
+    .timeline-marker {
+        position: absolute;
+        left: -1.5rem;
+        top: 0.5rem;
+        width: 1rem;
+        height: 1rem;
+        background: var(--secondary-color);
+        border-radius: 50%;
+        border: 3px solid white;
+        box-shadow: 0 0 0 3px var(--secondary-color);
+    }
+
+    .timeline-content {
+        background: var(--background-light);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        margin-left: 1rem;
+    }
+
+    .timeline-title {
+        color: var(--primary-color);
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .timeline-institution {
+        font-size: 1.1rem;
+        color: var(--text-color);
+        margin-bottom: 0.3rem;
+        font-weight: 500;
+    }
+
+    .timeline-department {
+        color: var(--text-light);
+        margin-bottom: 0.5rem;
+        font-style: italic;
+    }
+
+    .timeline-meta {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .timeline-location,
+    .timeline-period,
+    .timeline-type {
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+
+    .timeline-detail {
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+    }
+
+    .timeline-responsibilities {
+        margin-top: 1rem;
+        margin-left: 1.5rem;
+    }
+
+    .timeline-responsibilities li {
+        margin-bottom: 0.5rem;
+        color: var(--text-light);
+    }
+
+    /* Grants Grid */
+    .grants-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+    }
+
+    .grant-card {
+        background: var(--background-light);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        border-left: 4px solid var(--secondary-color);
+    }
+
+    .grant-title {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .grant-agency {
+        color: var(--text-color);
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+
+    .grant-details {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .grant-amount,
+    .grant-period,
+    .grant-role {
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+
+    .grant-amount {
+        color: var(--secondary-color);
+        font-weight: bold;
+    }
+
+    /* Awards Grid */
+    .awards-grid {
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    .award-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 2rem;
+        background: var(--background-light);
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+    }
+
+    .award-year {
+        background: var(--secondary-color);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        font-weight: bold;
+        min-width: 60px;
+        text-align: center;
+    }
+
+    .award-title {
+        color: var(--primary-color);
+        margin-bottom: 0.3rem;
+        font-size: 1.1rem;
+    }
+
+    .award-organization {
+        color: var(--text-light);
+    }
+
+    /* Skills */
+    .skills-container {
+        display: grid;
+        gap: 2rem;
+    }
+
+    .skills-category {
+        background: var(--background-light);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+    }
+
+    .skills-category h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .skills-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .skill-tag {
+        background: var(--secondary-color);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        transition: transform 0.2s ease;
+    }
+
+    .skill-tag:hover {
+        transform: translateY(-2px);
+    }
+
+    .skill-tag.specialization {
+        background: var(--primary-color);
+    }
+
+    /* Teaching */
+    .teaching-list {
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    .teaching-item {
+        background: var(--background-light);
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+    }
+
+    .course-title {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+    }
+
+    .course-details {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .course-semester,
+    .course-institution,
+    .course-role {
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+
+    .course-role {
+        color: var(--secondary-color);
+        font-weight: bold;
+    }
+
+    /* Service */
+    .service-subsection {
+        margin-bottom: 2rem;
+    }
+
+    .service-subsection h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .service-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .service-item {
+        background: var(--background-light);
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        border: 1px solid var(--border-color);
+        font-size: 0.9rem;
+    }
+
+    .service-detailed-list {
+        margin-left: 1.5rem;
+    }
+
+    .service-detailed-list li {
+        margin-bottom: 0.5rem;
+        color: var(--text-light);
+    }
+
+    /* Memberships */
+    .memberships-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 1rem;
+    }
+
+    .membership-item {
+        background: var(--background-light);
+        padding: 1rem;
+        border-radius: 5px;
+        border-left: 3px solid var(--secondary-color);
+    }
+
+    /* Print Styles */
+    @media print {
+        .cv-header {
+            background: none !important;
+            color: var(--text-color) !important;
+            margin: 0 !important;
+            padding: 1rem 0 !important;
+        }
+
+        .cv-download-section {
+            display: none !important;
+        }
+
+        .timeline::before {
+            background: #ccc !important;
+        }
+
+        .timeline-marker {
+            background: #ccc !important;
+            box-shadow: none !important;
+        }
+
+        .grant-card,
+        .award-item,
+        .teaching-item,
+        .membership-item {
+            break-inside: avoid;
+        }
+
+        .cv-section {
+            margin-bottom: 2rem !important;
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .page-title {
+            font-size: 2.5rem;
+        }
+
+        .cv-header {
+            padding: 2rem 0;
+        }
+
+        .timeline {
+            padding-left: 1rem;
+        }
+
+        .timeline::before {
+            left: 0.5rem;
+        }
+
+        .timeline-marker {
+            left: -0.25rem;
+        }
+
+        .timeline-content {
+            margin-left: 0.5rem;
+        }
+
+        .grants-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .memberships-list {
+            grid-template-columns: 1fr;
+        }
+
+        .award-item {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .timeline-meta {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
+</style>

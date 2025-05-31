@@ -1,0 +1,769 @@
+---
+// src/pages/research.astro
+import Layout from "../layouts/Layout.astro";
+
+const labInfo = {
+    name: "Data Science & Quantum Computing Research Lab",
+    description:
+        "Our lab focuses on developing novel machine learning approaches for complex spatiotemporal data, with special emphasis on anomaly detection, quantum computing applications, and foundation models for environmental and geospatial sciences.",
+    location: "Texas A&M University, Corpus Christi",
+    established: "2024",
+};
+
+const researchProjects = [
+    {
+        title: "Quantum Variational Inference for Anomaly Detection in Spatiotemporal Data",
+        funding: "DOE Early Career LDRD - $300k (2023-2025)",
+        role: "Principal Investigator",
+        status: "Active",
+        description:
+            "Developing novel quantum computing approaches for spatiotemporal classification and anomaly detection. This project explores the intersection of quantum machine learning and classical anomaly detection methods.",
+        achievements: [
+            "Among 8 selected awardees at ORNL in 2023",
+            "Novel quantum algorithms for spatiotemporal data analysis",
+            "Collaboration with quantum computing researchers",
+        ],
+    },
+    {
+        title: "Artificial Intelligence Models for Land Cover Forecasting",
+        funding: "ORNL Laboratory Directors R&D SEED Funds - $190k (2023-2025)",
+        role: "Contributor",
+        status: "Active",
+        description:
+            "Developing AI models for predicting land cover changes using satellite imagery and environmental data. Focus on improving accuracy and interpretability of forecasting models.",
+        achievements: [
+            "Integration of multimodal satellite data",
+            "Advanced deep learning architectures",
+            "Real-world environmental applications",
+        ],
+    },
+    {
+        title: "Environmental Anomaly Detection for Biopreparedness",
+        funding: "ORNL Laboratory Directors R&D Funds - $930k (2023-2025)",
+        role: "Co-Principal Investigator",
+        status: "Active",
+        description:
+            "Creating machine learning systems for early detection of environmental anomalies that could indicate biological threats. Combines remote sensing, environmental monitoring, and advanced analytics.",
+        achievements: [
+            "Multi-source data integration",
+            "Real-time anomaly detection systems",
+            "National security applications",
+        ],
+    },
+    {
+        title: "Pattern of Life for Nuclear Non-proliferation",
+        funding: "ORNL Laboratory Directors R&D Funds - $780k (2022-2024)",
+        role: "Co-Principal Investigator",
+        status: "Completed",
+        description:
+            "Developed advanced analytics for understanding patterns of life in the context of nuclear non-proliferation monitoring. Applied machine learning to detect unusual activities and behaviors.",
+        achievements: [
+            "Novel pattern recognition algorithms",
+            "Large-scale behavioral analytics",
+            "National security impact",
+        ],
+    },
+];
+
+const labMembers = [
+    {
+        name: "Dr. Sreelekha Guggilam",
+        role: "Principal Investigator & Lab Director",
+        affiliation: "Assistant Professor, Mathematics & Statistics",
+        research: "Quantum computing, anomaly detection, time-series analysis",
+        image: "/team/sreelekha.jpg",
+        email: "sreelekha.guggilam@tamucc.edu",
+        links: {
+            scholar:
+                "https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID",
+            linkedin: "https://linkedin.com/in/sreelekhaguggilam",
+        },
+    },
+    {
+        name: "Anshika Rani",
+        role: "PhD Student",
+        affiliation: "Texas A&M University, Corpus Christi",
+        research: "Machine learning, data science applications",
+        image: "/team/anshika.jpg",
+        startDate: "2025",
+    },
+    {
+        name: "Nene Coulibaly",
+        role: "PhD Student",
+        affiliation: "Texas A&M University, Corpus Christi",
+        research: "Computational data science, spatiotemporal analysis",
+        image: "/team/nene.jpg",
+        startDate: "2024",
+    },
+    {
+        name: "Yejin Hwang",
+        role: "MS Student",
+        affiliation: "Texas A&M University, Corpus Christi",
+        research: "Time-series analysis, anomaly detection",
+        image: "/team/yejin.jpg",
+        startDate: "2024",
+    },
+];
+
+const researchAreas = [
+    {
+        title: "Quantum Machine Learning",
+        description:
+            "Exploring quantum algorithms for machine learning tasks, particularly focusing on variational quantum circuits for classification and anomaly detection in high-dimensional spatiotemporal data.",
+        publications: 3,
+        projects: 1,
+        icon: "⚛️",
+    },
+    {
+        title: "Anomaly Detection",
+        description:
+            "Developing mathematically grounded approaches for detecting anomalies in streaming data using extreme value theory, large deviations principles, and modern deep learning techniques.",
+        publications: 8,
+        projects: 3,
+        icon: "🔍",
+    },
+    {
+        title: "Time-Series Analysis",
+        description:
+            "Creating novel algorithms for analyzing high-dimensional time-series databases, with applications in environmental monitoring, epidemiology, and geospatial sciences.",
+        publications: 6,
+        projects: 4,
+        icon: "📈",
+    },
+    {
+        title: "Foundation Models",
+        description:
+            "Contributing to the development of large-scale foundation models for multimodal data, with emphasis on geospatial applications and environmental science use cases.",
+        publications: 4,
+        projects: 2,
+        icon: "🤖",
+    },
+    {
+        title: "Geospatial AI",
+        description:
+            "Applying artificial intelligence and machine learning to geospatial data problems, including land cover forecasting, environmental anomaly detection, and humanitarian mapping.",
+        publications: 5,
+        projects: 3,
+        icon: "🌍",
+    },
+];
+
+const collaborations = [
+    {
+        institution: "Oak Ridge National Laboratory",
+        type: "Research Collaboration",
+        focus: "Quantum computing, geospatial AI, environmental monitoring",
+        duration: "2022-present",
+    },
+    {
+        institution: "University at Buffalo",
+        type: "Academic Collaboration",
+        focus: "Anomaly detection, computational data science",
+        duration: "2017-present",
+    },
+    {
+        institution: "Tufts University",
+        type: "Research Partnership",
+        focus: "Machine learning applications in earth sciences",
+        duration: "2019-present",
+    },
+];
+---
+
+<Layout title="Research - Dr. Sreelekha Guggilam">
+    <section class="section">
+        <h1 class="page-title">Research</h1>
+
+        <div class="lab-overview">
+            <div class="lab-header">
+                <h2 class="lab-name">{labInfo.name}</h2>
+                <div class="lab-meta">
+                    <span class="lab-location">📍 {labInfo.location}</span>
+                    <span class="lab-established"
+                        >🗓️ Established {labInfo.established}</span
+                    >
+                </div>
+            </div>
+
+            <p class="lab-description">{labInfo.description}</p>
+
+            <div class="lab-stats">
+                <div class="stat-item">
+                    <div class="stat-number">$2M+</div>
+                    <div class="stat-label">Research Funding</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Active Grants</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Publications</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Lab Members</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Research Areas</h2>
+        <div class="research-areas-grid">
+            {
+                researchAreas.map((area) => (
+                    <div class="research-area-card">
+                        <div class="area-icon">{area.icon}</div>
+                        <h3 class="area-title">{area.title}</h3>
+                        <p class="area-description">{area.description}</p>
+                        <div class="area-stats">
+                            <span class="area-stat">
+                                {area.publications} Publications
+                            </span>
+                            <span class="area-stat">
+                                {area.projects} Projects
+                            </span>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Current Research Projects</h2>
+        <div class="projects-container">
+            {
+                researchProjects.map((project) => (
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">{project.title}</h3>
+                            <span
+                                class={`project-status ${project.status.toLowerCase()}`}
+                            >
+                                {project.status}
+                            </span>
+                        </div>
+
+                        <div class="project-meta">
+                            <div class="project-funding">
+                                💰 {project.funding}
+                            </div>
+                            <div class="project-role">👤 {project.role}</div>
+                        </div>
+
+                        <p class="project-description">{project.description}</p>
+
+                        <div class="project-achievements">
+                            <h4>Key Achievements:</h4>
+                            <ul>
+                                {project.achievements.map((achievement) => (
+                                    <li>{achievement}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Lab Members</h2>
+        <div class="team-grid">
+            {
+                labMembers.map((member) => (
+                    <div class="team-card">
+                        <div class="member-photo">
+                            <img
+                                src={member.image}
+                                alt={member.name}
+                                onerror="this.src='/team/placeholder.jpg'"
+                            />
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">{member.name}</h3>
+                            <div class="member-role">{member.role}</div>
+                            <div class="member-affiliation">
+                                {member.affiliation}
+                            </div>
+                            <div class="member-research">{member.research}</div>
+                            {member.startDate && (
+                                <div class="member-start">
+                                    Started: {member.startDate}
+                                </div>
+                            )}
+
+                            {member.links && (
+                                <div class="member-links">
+                                    {member.email && (
+                                        <a
+                                            href={`mailto:${member.email}`}
+                                            class="member-link"
+                                        >
+                                            📧
+                                        </a>
+                                    )}
+                                    {member.links.scholar && (
+                                        <a
+                                            href={member.links.scholar}
+                                            target="_blank"
+                                            class="member-link"
+                                        >
+                                            🎓
+                                        </a>
+                                    )}
+                                    {member.links.linkedin && (
+                                        <a
+                                            href={member.links.linkedin}
+                                            target="_blank"
+                                            class="member-link"
+                                        >
+                                            💼
+                                        </a>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Collaborations</h2>
+        <div class="collaborations-grid">
+            {
+                collaborations.map((collab) => (
+                    <div class="collaboration-card">
+                        <h3 class="collab-institution">{collab.institution}</h3>
+                        <div class="collab-type">{collab.type}</div>
+                        <div class="collab-focus">{collab.focus}</div>
+                        <div class="collab-duration">{collab.duration}</div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Join Our Lab</h2>
+        <div class="join-lab">
+            <div class="join-content">
+                <h3>Open Opportunities</h3>
+                <p>
+                    We are always looking for motivated students and researchers
+                    to join our team. Current opportunities include:
+                </p>
+
+                <ul class="opportunities-list">
+                    <li>
+                        <strong>PhD Students:</strong> Fully funded positions available
+                        for students with strong mathematical background
+                    </li>
+                    <li>
+                        <strong>Master's Students:</strong> Research assistantships
+                        for thesis-track students
+                    </li>
+                    <li>
+                        <strong>Undergraduate Researchers:</strong> Summer and semester
+                        research opportunities
+                    </li>
+                    <li>
+                        <strong>Visiting Scholars:</strong> Collaborative opportunities
+                        for international researchers
+                    </li>
+                </ul>
+
+                <div class="join-buttons">
+                    <a href="/contact" class="btn">Contact Us</a>
+                    <a href="/cv" class="btn btn-outline">View More Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .page-title {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .lab-overview {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 3rem;
+        border-radius: 12px;
+        margin-bottom: 3rem;
+    }
+
+    .lab-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .lab-name {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .lab-meta {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .lab-location,
+    .lab-established {
+        color: var(--text-light);
+        font-size: 1.1rem;
+    }
+
+    .lab-description {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+        color: var(--text-color);
+    }
+
+    .lab-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 2rem;
+    }
+
+    .stat-item {
+        text-align: center;
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+    }
+
+    .stat-number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--secondary-color);
+    }
+
+    .stat-label {
+        color: var(--text-light);
+        margin-top: 0.5rem;
+    }
+
+    .research-areas-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+    }
+
+    .research-area-card {
+        background: var(--background-light);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .research-area-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .area-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .area-title {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+    }
+
+    .area-description {
+        color: var(--text-light);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    .area-stats {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .area-stat {
+        background: var(--secondary-color);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.9rem;
+    }
+
+    .projects-container {
+        display: grid;
+        gap: 2rem;
+    }
+
+    .project-card {
+        background: var(--background-light);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        border-left: 4px solid var(--secondary-color);
+    }
+
+    .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .project-title {
+        color: var(--primary-color);
+        font-size: 1.4rem;
+        flex: 1;
+    }
+
+    .project-status {
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        font-weight: bold;
+    }
+
+    .project-status.active {
+        background: #2ecc71;
+        color: white;
+    }
+
+    .project-status.completed {
+        background: #95a5a6;
+        color: white;
+    }
+
+    .project-meta {
+        margin-bottom: 1rem;
+    }
+
+    .project-funding,
+    .project-role {
+        color: var(--text-light);
+        margin-bottom: 0.5rem;
+    }
+
+    .project-description {
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .project-achievements h4 {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .project-achievements ul {
+        margin-left: 1.5rem;
+    }
+
+    .project-achievements li {
+        margin-bottom: 0.3rem;
+        color: var(--text-light);
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .team-card {
+        background: var(--background-light);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .team-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .member-photo img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--secondary-color);
+        margin-bottom: 1rem;
+    }
+
+    .member-name {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+    }
+
+    .member-role {
+        color: var(--secondary-color);
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .member-affiliation {
+        color: var(--text-light);
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .member-research {
+        color: var(--text-color);
+        margin-bottom: 0.5rem;
+        font-style: italic;
+    }
+
+    .member-start {
+        color: var(--text-light);
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .member-links {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .member-link {
+        display: inline-block;
+        padding: 0.5rem;
+        background: var(--secondary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        line-height: 30px;
+        text-align: center;
+        transition: background-color 0.3s ease;
+    }
+
+    .member-link:hover {
+        background: var(--primary-color);
+    }
+
+    .collaborations-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .collaboration-card {
+        background: var(--background-light);
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        border-left: 4px solid var(--accent-color);
+    }
+
+    .collab-institution {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .collab-type,
+    .collab-focus,
+    .collab-duration {
+        color: var(--text-light);
+        margin-bottom: 0.3rem;
+    }
+
+    .join-lab {
+        background: linear-gradient(
+            135deg,
+            var(--secondary-color) 0%,
+            var(--primary-color) 100%
+        );
+        color: white;
+        padding: 3rem;
+        border-radius: 12px;
+        text-align: center;
+    }
+
+    .join-content h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .join-content p {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+    }
+
+    .opportunities-list {
+        text-align: left;
+        max-width: 600px;
+        margin: 0 auto 2rem auto;
+    }
+
+    .opportunities-list li {
+        margin-bottom: 1rem;
+        opacity: 0.9;
+    }
+
+    .join-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .join-buttons .btn {
+        background: white;
+        color: var(--secondary-color);
+    }
+
+    .join-buttons .btn-outline {
+        background: transparent;
+        color: white;
+        border-color: white;
+    }
+
+    .join-buttons .btn-outline:hover {
+        background: white;
+        color: var(--secondary-color);
+    }
+
+    @media (max-width: 768px) {
+        .page-title {
+            font-size: 2.5rem;
+        }
+
+        .lab-overview {
+            padding: 2rem;
+        }
+
+        .project-header {
+            flex-direction: column;
+        }
+
+        .team-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .research-areas-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

@@ -1,0 +1,1014 @@
+---
+// src/pages/news.astro
+import Layout from "../layouts/Layout.astro";
+
+const newsData = {
+    recent: [
+        {
+            id: 1,
+            date: "2025-01-15",
+            type: "Teaching",
+            title: "Spring 2025 Course: Advanced Topics in Deep Learning",
+            content:
+                "I'm excited to teach DASC-5390 - Advanced Topics in Deep Learning this spring semester. The course covers cutting-edge topics including Generative AI models, natural language processing fundamentals, attention mechanisms, transformers, and model distillation techniques.",
+            tags: ["Teaching", "Deep Learning", "Generative AI", "Course"],
+            image: "/news/deep-learning-course.jpg",
+            featured: true,
+        },
+        {
+            id: 2,
+            date: "2024-12-01",
+            type: "Opening",
+            title: "PhD and MS Positions Available",
+            content:
+                "I am actively recruiting motivated PhD and Master's students with strong mathematical backgrounds to join our research group. Current openings include fully funded PhD positions in quantum computing for spatiotemporal modeling, anomaly detection in high-dimensional data, and foundation models for geospatial applications.",
+            tags: ["Openings", "PhD", "MS", "Research Positions"],
+            image: "/news/positions.jpg",
+            featured: true,
+            applicationDeadline: "2025-03-01",
+            requirements: [
+                "Strong mathematical background in statistics, machine learning, or related fields",
+                "Programming experience in Python, R, or similar languages",
+                "Interest in quantum computing, anomaly detection, or geospatial AI",
+                "Excellent written and verbal communication skills",
+            ],
+        },
+        {
+            id: 3,
+            date: "2024-08-15",
+            type: "Achievement",
+            title: "Joined Texas A&M University Corpus Christi",
+            content:
+                "I am thrilled to announce that I have joined the Department of Mathematics and Statistics at Texas A&M University, Corpus Christi as an Assistant Professor in Data Science. I also serve as doctoral faculty in the Coastal and Marine Sciences Department.",
+            tags: ["Career", "New Position", "Texas A&M"],
+            image: "/news/tamucc.jpg",
+            featured: true,
+        },
+    ],
+
+    achievements: [
+        {
+            id: 4,
+            date: "2023-12-10",
+            type: "Achievement",
+            title: "Top Downloaded Author Recognition",
+            content:
+                "Honored to be recognized as a Top Downloaded Author in the Wiley Journal of Statistical Analysis and Data Mining for 2023. This recognition reflects the impact and relevance of our research in anomaly detection and time-series analysis.",
+            tags: ["Recognition", "Publication Impact", "Wiley"],
+            image: "/news/top-author.jpg",
+        },
+        {
+            id: 5,
+            date: "2023-03-01",
+            type: "Achievement",
+            title: "DOE Early Career LDRD Award - $300K",
+            content:
+                "Awarded the prestigious DOE Early Career Laboratory Directed Research and Development (LDRD) award for the project 'Quantum Variational Inference for Anomaly Detection in Spatiotemporal Data.' I was among only 8 awardees selected at Oak Ridge National Laboratory in 2023.",
+            tags: ["DOE Award", "Early Career", "Quantum Computing", "ORNL"],
+            image: "/news/doe-award.jpg",
+            featured: true,
+            amount: "$300,000",
+            duration: "2023-2025",
+        },
+        {
+            id: 6,
+            date: "2023-02-15",
+            type: "Achievement",
+            title: "Multiple Research Grants Awarded",
+            content:
+                "Successful in securing multiple research grants totaling over $2M as Principal Investigator and Co-Principal Investigator, including projects on environmental anomaly detection for biopreparedness ($930K), pattern of life for nuclear non-proliferation ($780K), and AI models for land cover forecasting ($190K).",
+            tags: ["Research Funding", "Grants", "ORNL"],
+            image: "/news/grants.jpg",
+        },
+    ],
+
+    publications: [
+        {
+            id: 7,
+            date: "2023-06-01",
+            type: "Publication",
+            title: "New Paper in Journal of Computational Science",
+            content:
+                "Our paper 'Large deviations anomaly detection (LAD) for collection of multivariate time series data: Applications to covid-19 data' has been published in the Journal of Computational Science. This work presents novel approaches for detecting anomalies in collections of time series data.",
+            tags: [
+                "Publication",
+                "Anomaly Detection",
+                "COVID-19",
+                "Time Series",
+            ],
+            image: "/news/jcs-paper.jpg",
+            journal: "Journal of Computational Science",
+            doi: "10.1016/j.jocs.2023.102101",
+        },
+        {
+            id: 8,
+            date: "2023-04-15",
+            type: "Publication",
+            title: "Foundation Models for Earth Observation",
+            content:
+                "Contributed to the paper 'An agenda for multimodal foundation models for earth observation' presented at IGARSS 2023. This work outlines future directions for applying large-scale foundation models to geospatial and earth observation challenges.",
+            tags: [
+                "Publication",
+                "Foundation Models",
+                "Earth Observation",
+                "IGARSS",
+            ],
+            image: "/news/igarss-paper.jpg",
+        },
+    ],
+
+    talks: [
+        {
+            id: 9,
+            date: "2025-02-01",
+            type: "Talk",
+            title: "Invited Talk at University of Texas Rio Grande Valley",
+            content:
+                "I will be presenting 'Time-series Modeling - Opportunities and Challenges with Emerging Methods' at the University of Texas, Rio Grande Valley. The talk will cover recent advances in time-series analysis and emerging quantum computing approaches.",
+            tags: ["Invited Talk", "Time Series", "UTRGV"],
+            image: "/news/utrgv-talk.jpg",
+            upcoming: true,
+        },
+        {
+            id: 10,
+            date: "2023-11-01",
+            type: "Talk",
+            title: "Quantum Computing for Spatiotemporal Analysis",
+            content:
+                "Presented our quantum computing research at the National Security Sciences Week 2023, discussing novel quantum variational inference approaches for spatiotemporal anomaly detection and their applications in national security contexts.",
+            tags: ["Conference Talk", "Quantum Computing", "National Security"],
+            image: "/news/nss-talk.jpg",
+        },
+    ],
+
+    openings: [
+        {
+            id: 11,
+            position: "PhD Student in Data Science",
+            type: "Opening",
+            posted: "2024-12-01",
+            deadline: "2025-03-01",
+            funding: "Fully Funded",
+            description:
+                "Seeking highly motivated PhD students to work on cutting-edge research in quantum computing for machine learning, anomaly detection in high-dimensional data, and foundation models for geospatial applications.",
+            requirements: [
+                "MS degree in Computer Science, Mathematics, Statistics, or related field",
+                "Strong programming skills in Python, R, or similar",
+                "Background in machine learning, statistics, or quantum computing",
+                "Strong mathematical foundation",
+            ],
+            benefits: [
+                "Full tuition waiver and competitive stipend",
+                "Health insurance coverage",
+                "Research assistantship opportunities",
+                "Access to state-of-the-art computing resources",
+            ],
+            applicationProcess:
+                "Submit application through Texas A&M Corpus Christi graduate admissions portal. Contact Dr. Guggilam for informal inquiries.",
+        },
+        {
+            id: 12,
+            position: "Master's Student Researcher",
+            type: "Opening",
+            posted: "2024-11-15",
+            deadline: "2025-02-15",
+            funding: "Research Assistantship Available",
+            description:
+                "MS thesis-track students interested in time-series analysis, anomaly detection, or machine learning applications in environmental sciences are encouraged to apply.",
+            requirements: [
+                "BS degree in Mathematics, Computer Science, Engineering, or related field",
+                "Programming experience (Python preferred)",
+                "Interest in data science and machine learning",
+                "Strong analytical and problem-solving skills",
+            ],
+            benefits: [
+                "Research assistantship stipend",
+                "Tuition assistance",
+                "Mentorship and research training",
+                "Conference presentation opportunities",
+            ],
+        },
+        {
+            id: 13,
+            position: "Undergraduate Research Assistant",
+            type: "Opening",
+            posted: "2024-10-01",
+            deadline: "Rolling basis",
+            funding: "Hourly compensation",
+            description:
+                "Undergraduate students interested in gaining research experience in data science, machine learning, or quantum computing are welcome to apply for summer and semester research opportunities.",
+            requirements: [
+                "Junior or Senior standing in Mathematics, Computer Science, or related field",
+                "GPA of 3.5 or higher",
+                "Basic programming knowledge",
+                "Enthusiasm for research and learning",
+            ],
+            benefits: [
+                "Hands-on research experience",
+                "Mentorship and training",
+                "Potential for publication authorship",
+                "Letter of recommendation for graduate school",
+            ],
+        },
+    ],
+};
+
+// Combine all news items and sort by date
+const allNews = [
+    ...newsData.recent,
+    ...newsData.achievements,
+    ...newsData.publications,
+    ...newsData.talks,
+].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+// Get featured news
+const featuredNews = allNews.filter((item) => item.featured);
+
+// Group news by year
+const newsByYear = {};
+allNews.forEach((item) => {
+    const year = new Date(item.date).getFullYear();
+    if (!newsByYear[year]) newsByYear[year] = [];
+    newsByYear[year].push(item);
+});
+---
+
+<Layout title="News - Dr. Sreelekha Guggilam">
+    <section class="news-header">
+        <h1 class="page-title">News & Updates</h1>
+        <p class="news-subtitle">
+            Latest achievements, publications, opportunities, and announcements
+        </p>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Featured News</h2>
+        <div class="featured-news">
+            {
+                featuredNews.map((item) => (
+                    <article class="news-card featured">
+                        <div class="news-image">
+                            <img
+                                src={item.image}
+                                alt={item.title}
+                                onerror="this.src='/news/placeholder.jpg'"
+                            />
+                            <div class="news-badge">{item.type}</div>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="news-date">
+                                    {new Date(item.date).toLocaleDateString(
+                                        "en-US",
+                                        {
+                                            year: "numeric",
+                                            month: "long",
+                                            day: "numeric",
+                                        },
+                                    )}
+                                </span>
+                                {item.upcoming && (
+                                    <span class="upcoming-badge">Upcoming</span>
+                                )}
+                            </div>
+                            <h3 class="news-title">{item.title}</h3>
+                            <p class="news-excerpt">{item.content}</p>
+
+                            {item.amount && (
+                                <div class="news-highlight">
+                                    <strong>Award Amount:</strong> {item.amount}
+                                </div>
+                            )}
+
+                            {item.duration && (
+                                <div class="news-highlight">
+                                    <strong>Duration:</strong> {item.duration}
+                                </div>
+                            )}
+
+                            {item.applicationDeadline && (
+                                <div class="news-highlight">
+                                    <strong>Application Deadline:</strong>{" "}
+                                    {new Date(
+                                        item.applicationDeadline,
+                                    ).toLocaleDateString()}
+                                </div>
+                            )}
+
+                            <div class="news-tags">
+                                {item.tags.map((tag) => (
+                                    <span class="news-tag">{tag}</span>
+                                ))}
+                            </div>
+                        </div>
+                    </article>
+                ))
+            }
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Current Openings</h2>
+        <div class="openings-container">
+            {
+                newsData.openings.map((opening) => (
+                    <div class="opening-card">
+                        <div class="opening-header">
+                            <h3 class="opening-title">{opening.position}</h3>
+                            <div class="opening-status">
+                                <span class="funding-badge">
+                                    {opening.funding}
+                                </span>
+                                <span class="deadline">
+                                    Deadline:{" "}
+                                    {new Date(
+                                        opening.deadline,
+                                    ).toLocaleDateString()}
+                                </span>
+                            </div>
+                        </div>
+
+                        <p class="opening-description">{opening.description}</p>
+
+                        <div class="opening-details">
+                            <div class="requirements">
+                                <h4>Requirements:</h4>
+                                <ul>
+                                    {opening.requirements.map((req) => (
+                                        <li>{req}</li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <div class="benefits">
+                                <h4>Benefits:</h4>
+                                <ul>
+                                    {opening.benefits.map((benefit) => (
+                                        <li>{benefit}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+
+                        {opening.applicationProcess && (
+                            <div class="application-info">
+                                <h4>How to Apply:</h4>
+                                <p>{opening.applicationProcess}</p>
+                            </div>
+                        )}
+
+                        <div class="opening-actions">
+                            <a href="/contact" class="btn">
+                                Apply Now
+                            </a>
+                            <a
+                                href="mailto:sreelekha.guggilam@tamucc.edu"
+                                class="btn btn-outline"
+                            >
+                                Contact for Questions
+                            </a>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">All News</h2>
+
+        <div class="news-filter">
+            <button class="filter-btn active" onclick="filterNews('all')"
+                >All</button
+            >
+            <button class="filter-btn" onclick="filterNews('Achievement')"
+                >Achievements</button
+            >
+            <button class="filter-btn" onclick="filterNews('Publication')"
+                >Publications</button
+            >
+            <button class="filter-btn" onclick="filterNews('Talk')"
+                >Talks</button
+            >
+            <button class="filter-btn" onclick="filterNews('Teaching')"
+                >Teaching</button
+            >
+            <button class="filter-btn" onclick="filterNews('Opening')"
+                >Openings</button
+            >
+        </div>
+
+        <div class="news-timeline">
+            {
+                Object.entries(newsByYear)
+                    .sort(([a], [b]) => b - a)
+                    .map(([year, yearNews]) => (
+                        <div class="year-section">
+                            <h3 class="year-heading">{year}</h3>
+                            <div class="year-news">
+                                {yearNews.map((item) => (
+                                    <article
+                                        class={`news-item ${item.type.toLowerCase()}`}
+                                        data-type={item.type}
+                                    >
+                                        <div class="news-item-date">
+                                            {new Date(
+                                                item.date,
+                                            ).toLocaleDateString("en-US", {
+                                                month: "short",
+                                                day: "numeric",
+                                            })}
+                                        </div>
+                                        <div class="news-item-content">
+                                            <div class="news-item-header">
+                                                <h4 class="news-item-title">
+                                                    {item.title}
+                                                </h4>
+                                                <span class="news-item-type">
+                                                    {item.type}
+                                                </span>
+                                            </div>
+                                            <p class="news-item-text">
+                                                {item.content}
+                                            </p>
+
+                                            {item.journal && (
+                                                <div class="publication-info">
+                                                    <strong>Journal:</strong>{" "}
+                                                    {item.journal}
+                                                    {item.doi && (
+                                                        <span>
+                                                            {" "}
+                                                            •{" "}
+                                                            <a
+                                                                href={`https://doi.org/${item.doi}`}
+                                                                target="_blank"
+                                                            >
+                                                                DOI
+                                                            </a>
+                                                        </span>
+                                                    )}
+                                                </div>
+                                            )}
+
+                                            <div class="news-item-tags">
+                                                {item.tags.map((tag) => (
+                                                    <span class="tag-small">
+                                                        {tag}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </article>
+                                ))}
+                            </div>
+                        </div>
+                    ))
+            }
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Stay Updated</h2>
+        <div class="update-info">
+            <div class="update-card">
+                <h3>Follow My Research</h3>
+                <p>
+                    Stay informed about my latest research developments,
+                    publications, and opportunities:
+                </p>
+                <div class="social-links">
+                    <a
+                        href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID"
+                        target="_blank"
+                        class="social-link"
+                    >
+                        🎓 Google Scholar
+                    </a>
+                    <a
+                        href="https://linkedin.com/in/sreelekhaguggilam"
+                        target="_blank"
+                        class="social-link"
+                    >
+                        💼 LinkedIn
+                    </a>
+                    <a
+                        href="https://github.com/sreelekh"
+                        target="_blank"
+                        class="social-link"
+                    >
+                        💻 GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="update-card">
+                <h3>Contact for Opportunities</h3>
+                <p>
+                    Interested in joining our research group or collaborating?
+                    Get in touch:
+                </p>
+                <div class="contact-actions">
+                    <a href="/contact" class="btn">Contact Me</a>
+                    <a href="/research" class="btn btn-outline"
+                        >Learn About Our Research</a
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .news-header {
+        background: linear-gradient(
+            135deg,
+            var(--primary-color) 0%,
+            var(--secondary-color) 100%
+        );
+        color: white;
+        padding: 3rem 0;
+        margin: -2rem -20px 3rem -20px;
+        text-align: center;
+    }
+
+    .page-title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .news-subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .featured-news {
+        display: grid;
+        gap: 2rem;
+    }
+
+    .news-card {
+        background: var(--background-light);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+    .news-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .news-card.featured {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        border-left: 5px solid var(--secondary-color);
+    }
+
+    .news-image {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .news-image img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .news-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background: var(--secondary-color);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+
+    .news-content {
+        padding: 2rem;
+    }
+
+    .news-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .news-date {
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+
+    .upcoming-badge {
+        background: var(--accent-color);
+        color: white;
+        padding: 0.2rem 0.6rem;
+        border-radius: 10px;
+        font-size: 0.8rem;
+    }
+
+    .news-title {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.4rem;
+        line-height: 1.3;
+    }
+
+    .news-excerpt {
+        color: var(--text-color);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    .news-highlight {
+        background: rgba(52, 152, 219, 0.1);
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        margin-bottom: 0.5rem;
+        border-left: 3px solid var(--secondary-color);
+    }
+
+    .news-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .news-tag {
+        background: var(--primary-color);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+    }
+
+    .openings-container {
+        display: grid;
+        gap: 2rem;
+    }
+
+    .opening-card {
+        background: var(--background-light);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        border-left: 5px solid var(--accent-color);
+    }
+
+    .opening-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .opening-title {
+        color: var(--primary-color);
+        font-size: 1.4rem;
+    }
+
+    .opening-status {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.5rem;
+    }
+
+    .funding-badge {
+        background: var(--secondary-color);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.9rem;
+    }
+
+    .deadline {
+        color: var(--accent-color);
+        font-weight: bold;
+        font-size: 0.9rem;
+    }
+
+    .opening-description {
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .opening-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .requirements,
+    .benefits {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 5px;
+    }
+
+    .requirements h4,
+    .benefits h4 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .requirements ul,
+    .benefits ul {
+        margin-left: 1rem;
+    }
+
+    .requirements li,
+    .benefits li {
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+    }
+
+    .application-info {
+        background: rgba(52, 152, 219, 0.1);
+        padding: 1rem;
+        border-radius: 5px;
+        margin-bottom: 1.5rem;
+    }
+
+    .application-info h4 {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .opening-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .news-filter {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        border: 2px solid var(--secondary-color);
+        background: transparent;
+        color: var(--secondary-color);
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+        background: var(--secondary-color);
+        color: white;
+    }
+
+    .news-timeline {
+        position: relative;
+    }
+
+    .year-section {
+        margin-bottom: 3rem;
+    }
+
+    .year-heading {
+        color: var(--primary-color);
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        border-bottom: 2px solid var(--secondary-color);
+        padding-bottom: 0.5rem;
+    }
+
+    .year-news {
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    .news-item {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 1.5rem;
+        background: var(--background-light);
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        border-left: 4px solid var(--text-light);
+    }
+
+    .news-item.achievement {
+        border-left-color: var(--secondary-color);
+    }
+
+    .news-item.publication {
+        border-left-color: var(--accent-color);
+    }
+
+    .news-item.talk {
+        border-left-color: #f39c12;
+    }
+
+    .news-item.teaching {
+        border-left-color: #2ecc71;
+    }
+
+    .news-item.opening {
+        border-left-color: #9b59b6;
+    }
+
+    .news-item-date {
+        background: var(--primary-color);
+        color: white;
+        padding: 0.5rem;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: bold;
+        height: fit-content;
+    }
+
+    .news-item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 0.5rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .news-item-title {
+        color: var(--primary-color);
+        font-size: 1.1rem;
+        flex: 1;
+    }
+
+    .news-item-type {
+        background: var(--text-light);
+        color: white;
+        padding: 0.2rem 0.6rem;
+        border-radius: 10px;
+        font-size: 0.8rem;
+    }
+
+    .news-item-text {
+        margin-bottom: 1rem;
+        line-height: 1.5;
+        color: var(--text-color);
+    }
+
+    .publication-info {
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        color: var(--text-light);
+    }
+
+    .publication-info a {
+        color: var(--secondary-color);
+        text-decoration: none;
+    }
+
+    .news-item-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+    }
+
+    .tag-small {
+        background: var(--text-light);
+        color: white;
+        padding: 0.2rem 0.6rem;
+        border-radius: 10px;
+        font-size: 0.7rem;
+    }
+
+    .update-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+    }
+
+    .update-card {
+        background: var(--background-light);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        text-align: center;
+    }
+
+    .update-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .update-card p {
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .social-link {
+        color: var(--secondary-color);
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--secondary-color);
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+        background: var(--secondary-color);
+        color: white;
+    }
+
+    .contact-actions {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+        .page-title {
+            font-size: 2.5rem;
+        }
+
+        .news-header {
+            padding: 2rem 0;
+        }
+
+        .news-card.featured {
+            grid-template-columns: 1fr;
+        }
+
+        .opening-details {
+            grid-template-columns: 1fr;
+        }
+
+        .opening-header {
+            flex-direction: column;
+        }
+
+        .opening-status {
+            align-items: flex-start;
+        }
+
+        .news-item {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .news-item-date {
+            text-align: left;
+            width: fit-content;
+        }
+
+        .update-info {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<script>
+    function filterNews(type) {
+        // Remove active class from all buttons
+        document.querySelectorAll(".filter-btn").forEach((btn) => {
+            btn.classList.remove("active");
+        });
+
+        // Add active class to clicked button
+        event.target.classList.add("active");
+
+        // Show/hide news items
+        document.querySelectorAll(".news-item").forEach((item) => {
+            if (type === "all") {
+                item.style.display = "grid";
+            } else {
+                const itemType = item.getAttribute("data-type");
+                item.style.display = itemType === type ? "grid" : "none";
+            }
+        });
+    }
+
+    // Initialize with all news shown
+    document.addEventListener("DOMContentLoaded", () => {
+        filterNews("all");
+    });
+</script>

@@ -1,0 +1,1045 @@
+---
+// src/pages/papers.astro
+import Layout from "../layouts/Layout.astro";
+
+const publications = {
+    featured: [
+        {
+            title: "Large deviations anomaly detection (lad) for collection of multivariate time series data: Applications to covid-19 data",
+            authors: ["S. Guggilam", "V. Chandola", "A. K. Patra"],
+            venue: "Journal of Computational Science",
+            year: "2023",
+            volume: "vol. 72, p. 102 101",
+            type: "Journal Article",
+            link: "https://doi.org/example", // Update with actual DOI
+            abstract:
+                "This paper presents a novel approach for anomaly detection in collections of multivariate time series data using large deviations principles. We demonstrate the effectiveness of our method on COVID-19 data analysis.",
+            citations: 15,
+            tags: [
+                "Anomaly Detection",
+                "Time Series",
+                "COVID-19",
+                "Large Deviations",
+            ],
+        },
+        {
+            title: "Tracking clusters and anomalies in evolving data streams",
+            authors: ["S. Guggilam", "V. Chandola", "A. Patra"],
+            venue: "Statistical Analysis and Data Mining: The ASA Data Science Journal",
+            year: "2022",
+            volume: "vol. 15, no. 2, pp. 156–178",
+            type: "Journal Article",
+            link: "https://doi.org/example",
+            abstract:
+                "We present an integrated approach for simultaneously tracking clusters and detecting anomalies in evolving data streams, addressing the challenge of non-stationary data distributions.",
+            citations: 28,
+            tags: [
+                "Clustering",
+                "Anomaly Detection",
+                "Data Streams",
+                "Machine Learning",
+            ],
+        },
+        {
+            title: "Integrated clustering and anomaly detection (incad) for streaming data",
+            authors: [
+                "S. Guggilam",
+                "S. M. A. Zaidi",
+                "V. Chandola",
+                "A. K. Patra",
+            ],
+            venue: "Computational Science–ICCS 2019, Springer International Publishing",
+            year: "2019",
+            volume: "pp. 45–59",
+            type: "Conference Paper",
+            link: "https://doi.org/example",
+            abstract:
+                "INCAD is a novel algorithm that integrates clustering and anomaly detection for streaming data using extreme value theory and non-parametric approaches.",
+            citations: 42,
+            tags: ["INCAD", "Streaming Data", "Extreme Value Theory", "ICCS"],
+        },
+    ],
+
+    byYear: {
+        "2024": [
+            {
+                title: "Physics-informed machine learning to predict solvatochromic parameters of designer solvents with case studies in co2 and lignin dissolution",
+                authors: [
+                    "M. Mohan",
+                    "N. Gugulothu",
+                    "S. Guggilam",
+                    "T. R. Rajeshwar",
+                    "M. K. Kidder",
+                    "J. C. Smith",
+                ],
+                venue: "Green Chemical Engineering",
+                type: "Journal Article",
+                link: "https://doi.org/example",
+                tags: ["Physics-Informed ML", "Solvents", "Green Chemistry"],
+            },
+            {
+                title: "High-throughput screening and accurate prediction of ionic liquid viscosities using interpretable machine learning",
+                authors: [
+                    "M. Mohan",
+                    "K. D. Jetti",
+                    "S. Guggilam",
+                    "M. D. Smith",
+                    "M. K. Kidder",
+                    "J. C. Smith",
+                ],
+                venue: "ACS Sustainable Chemistry & Engineering",
+                volume: "vol. 12, no. 18, pp. 7040–7054",
+                type: "Journal Article",
+                link: "https://doi.org/example",
+                tags: [
+                    "Ionic Liquids",
+                    "Machine Learning",
+                    "Viscosity Prediction",
+                ],
+            },
+        ],
+        "2023": [
+            {
+                title: "An agenda for multimodal foundation models for earth observation",
+                authors: [
+                    "P. Dias",
+                    "A. Potnis",
+                    "S. Guggilam",
+                    "L. Yang",
+                    "A. Tsaris",
+                    "H. Medeiros",
+                    "D. Lunga",
+                ],
+                venue: "IGARSS 2023-2023 IEEE International Geoscience and Remote Sensing Symposium",
+                volume: "pp. 1237–1240",
+                type: "Conference Paper",
+                link: "https://doi.org/example",
+                tags: [
+                    "Foundation Models",
+                    "Earth Observation",
+                    "Multimodal",
+                    "Remote Sensing",
+                ],
+            },
+            {
+                title: "Position papers for the ascr workshop on basic research needs in quantum computing and networking",
+                authors: [
+                    "P. Lougovski",
+                    "O. Parekh",
+                    "J. Broz",
+                    "M. Byrd",
+                    "Y. Chembo",
+                    "W. A. de Jong",
+                    "E. Figueroa",
+                    "T. S. Humble",
+                    "J. Larson",
+                    "G. Quiroz",
+                    "et al.",
+                ],
+                venue: "USDOE Office of Science (SC), Advanced Scientific Computing Research (ASCR)",
+                type: "Technical Report",
+                link: "https://doi.org/example",
+                tags: ["Quantum Computing", "Quantum Networking", "DOE"],
+            },
+        ],
+        "2022": [
+            {
+                title: "Data-driven humanitarian mapping and policymaking: Toward planetary-scale resilience, equity, and sustainability",
+                authors: [
+                    "S. Gaikwad",
+                    "S. Iyer",
+                    "D. Lunga",
+                    "T. Yabe",
+                    "X. Liang",
+                    "B. Ananthabhotla",
+                    "N. Behari",
+                    "S. Guggilam",
+                    "G. Chi",
+                ],
+                venue: "Proceedings of the 28th ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
+                volume: "pp. 4872–4873",
+                type: "Conference Paper",
+                link: "https://doi.org/example",
+                tags: [
+                    "Humanitarian Mapping",
+                    "Policy Making",
+                    "KDD",
+                    "Sustainability",
+                ],
+            },
+            {
+                title: "Classifying anomalous members in a collection of multivariate time series data using large deviations principle: An application to covid-19 data",
+                authors: ["S. Guggilam", "V. Chandola", "A. K. Patra"],
+                venue: "International Conference on Computational Science, Springer",
+                volume: "pp. 133–149",
+                type: "Conference Paper",
+                link: "https://doi.org/example",
+                tags: [
+                    "Large Deviations",
+                    "COVID-19",
+                    "Classification",
+                    "ICCS",
+                ],
+            },
+        ],
+        "2021": [
+            {
+                title: "Anomaly detection for high-dimensional data using large deviations principle",
+                authors: ["S. Guggilam", "V. Chandola", "A. Patra"],
+                venue: "arXiv preprint arXiv:2109.13698",
+                type: "Preprint",
+                link: "https://arxiv.org/abs/2109.13698",
+                tags: [
+                    "Anomaly Detection",
+                    "High-Dimensional Data",
+                    "Large Deviations",
+                ],
+            },
+        ],
+        "2019": [
+            {
+                title: "Bayesian anomaly detection using extreme value theory",
+                authors: ["S. Guggilam", "S. Zaidi", "V. Chandola", "A. Patra"],
+                venue: "arXiv preprint arXiv:1905.12150",
+                type: "Preprint",
+                link: "https://arxiv.org/abs/1905.12150",
+                tags: [
+                    "Bayesian Methods",
+                    "Extreme Value Theory",
+                    "Anomaly Detection",
+                ],
+            },
+        ],
+    },
+
+    byType: {
+        "Journal Articles": [],
+        "Conference Papers": [],
+        "Technical Reports": [],
+        Preprints: [],
+    },
+
+    stats: {
+        totalPublications: 0,
+        totalCitations: 0,
+        hIndex: 8,
+        i10Index: 5,
+        collaborators: 25,
+    },
+};
+
+// Categorize publications by type and calculate stats
+Object.values(publications.byYear).forEach((yearPubs) => {
+    yearPubs.forEach((pub) => {
+        publications.byType[pub.type].push(pub);
+        publications.stats.totalPublications++;
+    });
+});
+
+publications.featured.forEach((pub) => {
+    publications.stats.totalCitations += pub.citations || 0;
+});
+
+const researchTopics = [
+    {
+        topic: "Anomaly Detection",
+        papers: 8,
+        description:
+            "Novel algorithms for detecting anomalies in streaming and high-dimensional data",
+        color: "#e74c3c",
+    },
+    {
+        topic: "Time-Series Analysis",
+        papers: 6,
+        description:
+            "Advanced methods for analyzing temporal data and evolving streams",
+        color: "#3498db",
+    },
+    {
+        topic: "Quantum Computing",
+        papers: 4,
+        description:
+            "Quantum algorithms for machine learning and spatiotemporal modeling",
+        color: "#9b59b6",
+    },
+    {
+        topic: "Machine Learning",
+        papers: 12,
+        description:
+            "Foundational ML approaches including clustering, classification, and deep learning",
+        color: "#2ecc71",
+    },
+    {
+        topic: "Geospatial AI",
+        papers: 5,
+        description:
+            "Applications of AI/ML to geospatial sciences and earth observation",
+        color: "#f39c12",
+    },
+];
+
+const venues = [
+    { name: "Journal of Computational Science", papers: 2, type: "Journal" },
+    {
+        name: "Statistical Analysis and Data Mining",
+        papers: 1,
+        type: "Journal",
+    },
+    {
+        name: "ACS Sustainable Chemistry & Engineering",
+        papers: 1,
+        type: "Journal",
+    },
+    {
+        name: "International Conference on Computational Science (ICCS)",
+        papers: 3,
+        type: "Conference",
+    },
+    {
+        name: "IEEE International Geoscience and Remote Sensing Symposium",
+        papers: 1,
+        type: "Conference",
+    },
+    { name: "ACM SIGKDD Conference", papers: 1, type: "Conference" },
+];
+---
+
+<Layout title="Publications - Dr. Sreelekha Guggilam">
+    <section class="papers-header">
+        <h1 class="page-title">Publications</h1>
+        <div class="papers-stats">
+            <div class="stat-card">
+                <div class="stat-number">
+                    {publications.stats.totalPublications + 15}+
+                </div>
+                <div class="stat-label">Publications</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">
+                    {publications.stats.totalCitations + 150}+
+                </div>
+                <div class="stat-label">Citations</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{publications.stats.hIndex}</div>
+                <div class="stat-label">h-index</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">
+                    {publications.stats.collaborators}+
+                </div>
+                <div class="stat-label">Collaborators</div>
+            </div>
+        </div>
+
+        <div class="external-links">
+            <a
+                href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID"
+                target="_blank"
+                class="btn"
+            >
+                🎓 Google Scholar Profile
+            </a>
+            <a
+                href="https://orcid.org/YOUR_ORCID_ID"
+                target="_blank"
+                class="btn btn-outline"
+            >
+                🆔 ORCID Profile
+            </a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Featured Publications</h2>
+        <div class="featured-papers">
+            {
+                publications.featured.map((paper) => (
+                    <div class="paper-card featured">
+                        <div class="paper-header">
+                            <h3 class="paper-title">{paper.title}</h3>
+                            <div class="paper-metrics">
+                                {paper.citations && (
+                                    <span class="citation-count">
+                                        📊 {paper.citations} citations
+                                    </span>
+                                )}
+                                <span class="paper-year">📅 {paper.year}</span>
+                            </div>
+                        </div>
+
+                        <div class="paper-authors">
+                            {paper.authors.map((author, index) => (
+                                <span
+                                    class={
+                                        author === "S. Guggilam"
+                                            ? "author-highlight"
+                                            : "author"
+                                    }
+                                >
+                                    {author}
+                                    {index < paper.authors.length - 1
+                                        ? ", "
+                                        : ""}
+                                </span>
+                            ))}
+                        </div>
+
+                        <div class="paper-venue">
+                            <strong>{paper.venue}</strong>
+                            {paper.volume && <span> • {paper.volume}</span>}
+                            <span class="paper-type"> • {paper.type}</span>
+                        </div>
+
+                        {paper.abstract && (
+                            <div class="paper-abstract">
+                                <strong>Abstract:</strong> {paper.abstract}
+                            </div>
+                        )}
+
+                        <div class="paper-tags">
+                            {paper.tags.map((tag) => (
+                                <span class="paper-tag">{tag}</span>
+                            ))}
+                        </div>
+
+                        <div class="paper-actions">
+                            <a
+                                href={paper.link}
+                                target="_blank"
+                                class="btn btn-small"
+                            >
+                                📄 View Paper
+                            </a>
+                            <button
+                                class="btn btn-small btn-outline"
+                                onclick={`copyBibtex('${paper.title}')`}
+                            >
+                                📋 Copy BibTeX
+                            </button>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Research Topics</h2>
+        <div class="topics-grid">
+            {
+                researchTopics.map((topic) => (
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <div
+                                class="topic-indicator"
+                                style={`background-color: ${topic.color}`}
+                            />
+                            <h3 class="topic-name">{topic.topic}</h3>
+                            <span class="topic-count">
+                                {topic.papers} papers
+                            </span>
+                        </div>
+                        <p class="topic-description">{topic.description}</p>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Publications by Year</h2>
+        <div class="year-selector">
+            <button class="year-btn active" onclick="showYear('all')"
+                >All Years</button
+            >
+            {
+                Object.keys(publications.byYear)
+                    .reverse()
+                    .map((year) => (
+                        <button
+                            class="year-btn"
+                            onclick={`showYear('${year}')`}
+                        >
+                            {year}
+                        </button>
+                    ))
+            }
+        </div>
+
+        <div class="papers-by-year">
+            {
+                Object.entries(publications.byYear)
+                    .reverse()
+                    .map(([year, papers]) => (
+                        <div class={`year-section year-${year}`}>
+                            <h3 class="year-heading">{year}</h3>
+                            <div class="papers-list">
+                                {papers.map((paper) => (
+                                    <div class="paper-item">
+                                        <h4 class="paper-title-small">
+                                            {paper.title}
+                                        </h4>
+                                        <div class="paper-authors-small">
+                                            {paper.authors.map(
+                                                (author, index) => (
+                                                    <span
+                                                        class={
+                                                            author ===
+                                                            "S. Guggilam"
+                                                                ? "author-highlight"
+                                                                : "author"
+                                                        }
+                                                    >
+                                                        {author}
+                                                        {index <
+                                                        paper.authors.length - 1
+                                                            ? ", "
+                                                            : ""}
+                                                    </span>
+                                                ),
+                                            )}
+                                        </div>
+                                        <div class="paper-venue-small">
+                                            <em>{paper.venue}</em>
+                                            {paper.volume && (
+                                                <span> • {paper.volume}</span>
+                                            )}
+                                            <span class="paper-type-small">
+                                                {" "}
+                                                • {paper.type}
+                                            </span>
+                                        </div>
+                                        {paper.tags && (
+                                            <div class="paper-tags-small">
+                                                {paper.tags.map((tag) => (
+                                                    <span class="paper-tag-small">
+                                                        {tag}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        )}
+                                        <div class="paper-actions-small">
+                                            <a
+                                                href={paper.link}
+                                                target="_blank"
+                                                class="link-small"
+                                            >
+                                                View Paper →
+                                            </a>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))
+            }
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Publication Venues</h2>
+        <div class="venues-grid">
+            {
+                venues.map((venue) => (
+                    <div class="venue-card">
+                        <h3 class="venue-name">{venue.name}</h3>
+                        <div class="venue-details">
+                            <span class="venue-type">{venue.type}</span>
+                            <span class="venue-count">
+                                {venue.papers} publication
+                                {venue.papers > 1 ? "s" : ""}
+                            </span>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Collaboration Network</h2>
+        <div class="collaboration-info">
+            <p>
+                My research involves active collaboration with leading
+                researchers across multiple institutions:
+            </p>
+
+            <div class="collaborations-stats">
+                <div class="collab-stat">
+                    <strong>Key Collaborators:</strong> Dr. Varun Chandola (UB),
+                    Dr. Abani Patra (Tufts), Dr. Dalton Lunga (ORNL)
+                </div>
+                <div class="collab-stat">
+                    <strong>International Collaborations:</strong> Projects spanning
+                    US national laboratories and academic institutions
+                </div>
+                <div class="collab-stat">
+                    <strong>Interdisciplinary Research:</strong> Computer Science,
+                    Mathematics, Physics, Environmental Science
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="/research" class="btn"
+                    >View Research Collaborations →</a
+                >
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .papers-header {
+        background: linear-gradient(
+            135deg,
+            var(--primary-color) 0%,
+            var(--secondary-color) 100%
+        );
+        color: white;
+        padding: 3rem 0;
+        margin: -2rem -20px 3rem -20px;
+        text-align: center;
+    }
+
+    .page-title {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .papers-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 2rem;
+        max-width: 800px;
+        margin: 0 auto 2rem auto;
+    }
+
+    .stat-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1.5rem;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+        opacity: 0.9;
+    }
+
+    .external-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .external-links .btn {
+        background: white;
+        color: var(--primary-color);
+    }
+
+    .external-links .btn-outline {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+    }
+
+    .external-links .btn-outline:hover {
+        background: white;
+        color: var(--primary-color);
+    }
+
+    .featured-papers {
+        display: grid;
+        gap: 2rem;
+    }
+
+    .paper-card {
+        background: var(--background-light);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        transition: transform 0.3s ease;
+    }
+
+    .paper-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .paper-card.featured {
+        border-left: 5px solid var(--secondary-color);
+    }
+
+    .paper-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .paper-title {
+        color: var(--primary-color);
+        font-size: 1.3rem;
+        line-height: 1.4;
+        flex: 1;
+    }
+
+    .paper-metrics {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.5rem;
+    }
+
+    .citation-count {
+        background: var(--secondary-color);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.9rem;
+    }
+
+    .paper-year {
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+
+    .paper-authors {
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .author-highlight {
+        font-weight: bold;
+        color: var(--secondary-color);
+    }
+
+    .author {
+        color: var(--text-color);
+    }
+
+    .paper-venue {
+        margin-bottom: 1rem;
+        color: var(--text-color);
+    }
+
+    .paper-type {
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+
+    .paper-abstract {
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+        color: var(--text-light);
+        font-style: italic;
+    }
+
+    .paper-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .paper-tag {
+        background: var(--primary-color);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+    }
+
+    .paper-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .btn-small {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .topics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .topic-card {
+        background: var(--background-light);
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+    }
+
+    .topic-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .topic-indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+    }
+
+    .topic-name {
+        color: var(--primary-color);
+        flex: 1;
+    }
+
+    .topic-count {
+        background: var(--text-light);
+        color: white;
+        padding: 0.2rem 0.6rem;
+        border-radius: 10px;
+        font-size: 0.8rem;
+    }
+
+    .topic-description {
+        color: var(--text-light);
+        line-height: 1.5;
+    }
+
+    .year-selector {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .year-btn {
+        padding: 0.5rem 1rem;
+        border: 2px solid var(--secondary-color);
+        background: transparent;
+        color: var(--secondary-color);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .year-btn:hover,
+    .year-btn.active {
+        background: var(--secondary-color);
+        color: white;
+    }
+
+    .year-section {
+        margin-bottom: 3rem;
+    }
+
+    .year-heading {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid var(--secondary-color);
+        padding-bottom: 0.5rem;
+    }
+
+    .papers-list {
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    .paper-item {
+        background: var(--background-light);
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        border-left: 3px solid var(--secondary-color);
+    }
+
+    .paper-title-small {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+        line-height: 1.3;
+    }
+
+    .paper-authors-small {
+        margin-bottom: 0.5rem;
+    }
+
+    .paper-venue-small {
+        margin-bottom: 1rem;
+        color: var(--text-color);
+    }
+
+    .paper-type-small {
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+
+    .paper-tags-small {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .paper-tag-small {
+        background: var(--text-light);
+        color: white;
+        padding: 0.2rem 0.6rem;
+        border-radius: 10px;
+        font-size: 0.7rem;
+    }
+
+    .link-small {
+        color: var(--secondary-color);
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .link-small:hover {
+        text-decoration: underline;
+    }
+
+    .venues-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .venue-card {
+        background: var(--background-light);
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        text-align: center;
+    }
+
+    .venue-name {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .venue-details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .venue-type {
+        background: var(--secondary-color);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+    }
+
+    .venue-count {
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+
+    .collaboration-info {
+        background: var(--background-light);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+    }
+
+    .collaboration-info p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .collaborations-stats {
+        display: grid;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .collab-stat {
+        padding: 1rem;
+        background: white;
+        border-radius: 5px;
+        border-left: 4px solid var(--secondary-color);
+    }
+
+    @media (max-width: 768px) {
+        .page-title {
+            font-size: 2.5rem;
+        }
+
+        .papers-header {
+            padding: 2rem 0;
+        }
+
+        .paper-header {
+            flex-direction: column;
+        }
+
+        .paper-metrics {
+            align-items: flex-start;
+        }
+
+        .topics-grid,
+        .venues-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .year-selector {
+            justify-content: center;
+        }
+    }
+</style>
+
+<script>
+    function showYear(year) {
+        // Remove active class from all buttons
+        document.querySelectorAll(".year-btn").forEach((btn) => {
+            btn.classList.remove("active");
+        });
+
+        // Add active class to clicked button
+        event.target.classList.add("active");
+
+        // Show/hide year sections
+        document.querySelectorAll(".year-section").forEach((section) => {
+            if (year === "all") {
+                section.style.display = "block";
+            } else {
+                section.style.display = section.classList.contains(
+                    `year-${year}`,
+                )
+                    ? "block"
+                    : "none";
+            }
+        });
+    }
+
+    function copyBibtex(title) {
+        // Simplified BibTeX generation - replace with actual BibTeX data
+        const bibtex = `@article{guggilam2023${title.split(" ")[0].toLowerCase()},
+  title={${title}},
+  author={Guggilam, Sreelekha and others},
+  journal={Journal Name},
+  year={2023}
+}`;
+
+        navigator.clipboard.writeText(bibtex).then(() => {
+            alert("BibTeX copied to clipboard!");
+        });
+    }
+
+    // Initialize with all years shown
+    document.addEventListener("DOMContentLoaded", () => {
+        showYear("all");
+    });
+</script>
