@@ -1,20 +1,16 @@
-// astro.config.mjs
-import { defineConfig } from 'astro/config';
+// @ts-check
+import { defineConfig } from "astro/config";
 
+import react from "@astrojs/react";
+import tailwind from "@astrojs/tailwind";
+
+import { template } from "./src/settings";
+
+import sitemap from "@astrojs/sitemap";
+
+// https://astro.build/config
 export default defineConfig({
-    site: process.env.ASTRO_SITE || 'https://sreelekh.github.io',
-    base: process.env.ASTRO_BASE || '/lekha-homepage',
-    output: 'static',
-    build: {
-        assets: 'assets'
-    },
-    vite: {
-        build: {
-            rollupOptions: {
-                output: {
-                    assetFileNames: 'assets/[name].[hash][extname]'
-                }
-            }
-        }
-    }
+    integrations: [react(), tailwind(), sitemap()],
+    site: template.website_url,
+    base: template.base,
 });
