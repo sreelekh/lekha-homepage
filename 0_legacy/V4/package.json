@@ -1,0 +1,50 @@
+{
+  "name": "sreelekha-guggilam-homepage",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Dr. Sreelekha Guggilam - Assistant Professor in Data Science at Texas A&M Corpus Christi",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/mdx": "^4.3.0",
+    "@astrojs/rss": "^4.0.9",
+    "@astrojs/sitemap": "^3.4.0",
+    "@astrojs/tailwind": "^5.1.5",
+    "@tailwindcss/typography": "^0.5.16",
+    "astro": "^5.8.1",
+    "tailwindcss": "^3.4.16",
+    "theme-change": "^2.5.0",
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.1"
+  },
+  "keywords": [
+    "academic-website",
+    "data-science",
+    "machine-learning",
+    "anomaly-detection",
+    "quantum-computing",
+    "astro",
+    "typescript",
+    "tailwindcss"
+  ],
+  "author": {
+    "name": "Dr. Sreelekha Guggilam",
+    "email": "sreelekha.guggilam@tamucc.edu",
+    "url": "https://sreelekh.github.io/homepage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sreelekh/homepage.git"
+  },
+  "homepage": "https://sreelekh.github.io/homepage",
+  "license": "MIT"
+}

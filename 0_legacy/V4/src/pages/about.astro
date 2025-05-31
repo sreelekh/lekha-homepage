@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { aboutContent } from "../settings.ts";
+---
+
+<Layout title="About - Dr. Sreelekha Guggilam">
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="md:col-span-1">
+                <img
+                    src="/images/headshot.jpg"
+                    alt="Dr. Sreelekha Guggilam"
+                    class="w-full rounded-lg shadow-lg"
+                />
+            </div>
+            <div class="md:col-span-2">
+                <h1 class="text-3xl font-bold mb-4">
+                    About Dr. Sreelekha Guggilam
+                </h1>
+                <p class="text-lg mb-6">{aboutContent.shortBio}</p>
+                <div class="prose max-w-none">
+                    <p>{aboutContent.longBio}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 grid md:grid-cols-2 gap-8">
+            <div>
+                <h2 class="text-2xl font-semibold mb-4">Research Expertise</h2>
+                <ul class="space-y-2">
+                    {
+                        aboutContent.expertise.map((item) => (
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3" />
+                                {item}
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-semibold mb-4">Recent Awards</h2>
+                <ul class="space-y-2">
+                    {
+                        aboutContent.awards.map((award) => (
+                            <li class="border-l-4 border-blue-600 pl-4 py-2">
+                                {award}
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>
+    </main>
+</Layout>
